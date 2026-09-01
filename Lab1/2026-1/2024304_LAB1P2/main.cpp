@@ -42,7 +42,7 @@ void actualizar(int * d_parcial, int * g_parcial, int * cromo, int * tipo, int *
     for (int j = 0; j < n_dientes; j++) {
         int cita = cromo[j], ubi = j;
         if (cita>0) {
-            d_parcial[cita-1] += duracion[tipo[ubi] - 1];
+            d_parcial[cita-1] += duracion[tipo[ubi] - 1] * cantidad_caries[ubi];
             g_parcial[cita-1] += ganancia[tipo[ubi] - 1] * cantidad_caries[ubi];
         }
     }
