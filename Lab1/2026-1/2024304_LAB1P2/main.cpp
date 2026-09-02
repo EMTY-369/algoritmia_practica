@@ -71,10 +71,6 @@ void maximizar(int *tipo, int *duracion, int *ganancia, int *cantidad_caries, in
         inicializar_arreglos_int(g_parcial, n_citas, 0);
         inicializar_arreglos_int(d_parcial, n_citas, 0);
 
-        if (i == 37984) {
-            cout<<endl;
-        }
-
         conver(i, n_dientes, n_citas+1, cromo);
 
         actualizar(d_parcial, g_parcial, cromo, tipo, cantidad_caries, duracion, ganancia, n_dientes);
