@@ -7,8 +7,8 @@ using namespace std;
 bool robot_minero(int x,int y, int galeria,char matriz[N][M]) {
     //es una modificiacion del ejercio, mejora el rellenado de las galerias.
     bool borrar=true;
-    if (y==0) while (matriz[x][y]!=' ') x++;
-    if (x>N) return borrar;
+    if (y==0 and matriz[x][0]!=' ') return true;
+
     matriz[x][y] = '0' + galeria;
     if (y+1>=M and matriz[x+1][y]!=' ') return false;
 
@@ -28,9 +28,9 @@ int main() {
             matriz[i][j]=' ';
         }
     }
-    //matriz[5][8] = '*';
-    matriz[4][5] = '*';
-    matriz[3][5] = '*';
+    matriz[5][8] = '*';
+    matriz[4][3] = '*';
+    matriz[3][2] = '*';
 
     for (int i=0;i<N;i++) robot_minero(N-i-1, 0,i+1,matriz);
 

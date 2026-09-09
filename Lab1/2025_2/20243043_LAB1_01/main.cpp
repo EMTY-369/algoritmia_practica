@@ -3,8 +3,10 @@
 
 using namespace std;
 
-void conver_bin(int num, int * cromo) {
+void conver_bin(int num, int * cromo, int n) {
     int res, i=0;
+
+    for (int j=0; j<n; j++) cromo[j]=0;
 
     while (num>0) {
         res = num%2;
@@ -41,7 +43,7 @@ void imprimir_opciones(int *costo, int *beneficio, int *falsos_negativos, int op
 
     for (int i = 0; i < options; i++) {
         int p_parcial=0, b_parcial=0, fn_parcial=0;
-        conver_bin(i, cromo);
+        conver_bin(i, cromo, n);
         actualizar(p_parcial, b_parcial, fn_parcial, cromo, costo, beneficio, falsos_negativos,n);
 
         if (p_parcial <= P and b_parcial >= B and fn_parcial <= F) {
