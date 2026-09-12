@@ -58,14 +58,12 @@ int main() {
     char *palabras[8]{}, buffer[9]{};
     cout << "Digite la cantidad y las letras de produccion: ";
     cin >> n_letras;
-    cout << endl;
     for (int j = 0; j < n_letras; j++) {
         cin >> letras[j];
     }
 
     cout << "Ingrese la cantidad y las palabras a formar: ";
     cin >> n_palabras;
-    cout << endl;
     for (int i = 0; i < n_palabras; i++) {
         palabras[i] = new char[9];
         cin >> buffer;
