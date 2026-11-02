@@ -9,7 +9,7 @@ bool determinar_secuencia_validaU(char * secuencia, int n) {
             apilar(aux, {secuencia[i]});
         }
         if (secuencia[i]>='a' and secuencia[i]<='z') {
-            if (cima(aux).empleado == (secuencia[i] - ('a'-'A'))) desapilar(aux);
+            if (not esPilaVacia(aux) and (cima(aux).empleado == secuencia[i] - ('a'-'A'))) desapilar(aux);
             else return false;
         }
     }
@@ -21,6 +21,10 @@ bool determinar_secuencia_validaU(char * secuencia, int n) {
 int main() {
     char secuencia[] = {'A','B','b','a','C','c','A','a'};
     int n = sizeof(secuencia)/sizeof(secuencia[0]);
+
+    cout << "Secuencia: ";
+    for (int i = 0; i < n; i++) cout << secuencia[i];
+    cout << endl;
 
     bool valid = determinar_secuencia_validaU(secuencia, n);
     if (valid) cout << "Salida: Secuencia válida" << endl;
