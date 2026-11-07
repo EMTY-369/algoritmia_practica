@@ -4,13 +4,18 @@ using namespace std;
 #define N 10
 
 int max_pureza_muestra(int * arr, int ini, int fin) {
-    if (ini == fin) return arr[ini];
+    if (ini==fin) return arr[ini];
     int med = (ini+fin)/2;
+    while (arr[med]==arr[med+1] and arr[med-1]==arr[med] and arr[med]!=0) med++;
 
-    int num1 = max_pureza_muestra(arr, ini, med);
-    int num2 = max_pureza_muestra(arr, med+1, fin);
-    if (num1>num2) return num1;
-    else return num2;
+    if (ini==med and arr[fin]>arr[ini]) return arr[fin];
+    if (ini==med and arr[fin]<arr[ini]) return arr[ini];
+
+    if (arr[med]>arr[med+1] and arr[med]>arr[med-1]) return arr[med];
+
+    if ((arr[med]<=arr[med+1] and arr[med-1]<=arr[med] and arr[med+1]!=0 and arr[med-1]!=0) or (arr[med]==0 and arr[ini]==0))
+        return max_pureza_muestra(arr, med+1, fin);
+    else return max_pureza_muestra(arr, ini, med-1);
 }
 
 int max_pureza(int mina[][N], int n) {
